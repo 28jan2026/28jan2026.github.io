@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation - Tamilselvan & Yogavarshini</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Sans+Tamil:wght@400;600;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS Variables for Themes --- */
+        :root {
+            /* Light Mode (Matches the Card) */
+            --bg-body: #f4f4f4;
+            --bg-card: #fffdf5; /* Creamy paper color */
+            --text-primary: #8b0000; /* Dark Red */
+            --text-secondary: #5c4a4a;
+            --accent-gold: #b8860b;
+            --border-green: #2e6b2e;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] {
+            /* Dark Mode (Elegant Night Theme) */
+            --bg-body: #1a1a1a;
+            --bg-card: #2c0505; /* Deep Maroon */
+            --text-primary: #ffebcd; /* Blanched Almond */
+            --text-secondary: #e0d0d0;
+            --accent-gold: #ffd700; /* Bright Gold */
+            --border-green: #143d14;
+            --shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s, filter 0.3s;
+        }
+
+        body {
+            font-family: 'Noto Sans Tamil', 'Playfair Display', serif;
+            background-color: var(--bg-body);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* --- Controls (Toggles) --- */
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            background-color: var(--text-primary);
+            color: var(--bg-card);
+            font-weight: bold;
+            font-family: sans-serif;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        /* --- Main Card --- */
+        .card {
+            background-color: var(--bg-card);
+            width: 100%;
+            max-width: 600px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border-radius: 8px;
+            position: relative;
+            border-left: 15px solid var(--border-green);
+            /* Subtle background pattern */
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239C92AC' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        /* --- Typography & Elements --- */
+        .top-icon {
+            width: 120px;
+            margin-bottom: 20px;
+            /* filter: sepia(1) saturate(2) hue-rotate(40deg) opacity(0.7);
+            mix-blend-mode: multiply; */
+        }
+        
+        /* In dark mode, make the icon brighter and more golden */
+        /* [data-theme="dark"] .top-icon {
+            filter: sepia(1) saturate(5) hue-rotate(45deg) opacity(0.9);
+            mix-blend-mode: normal;
+        } */
+
+        h1 {
+            color: var(--text-primary);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .greeting {
+            color: var(--accent-gold);
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .main-date {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .divider {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--accent-gold), rgba(0, 0, 0, 0));
+            margin: 20px 0;
+            opacity: 0.5;
+        }
+
+        .parents {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+
+        .couple-name {
+            font-size: 2.2rem;
+            color: var(--text-primary);
+            margin: 10px 0;
+            font-weight: 800;
+        }
+        
+        [lang="en"] .couple-name {
+            font-family: 'Great Vibes', cursive;
+            font-weight: 400;
+            font-size: 3rem;
+        }
+
+        .invite-text {
+            margin: 30px 0;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .events-section {
+            margin-top: 40px;
+        }
+
+        .event-title {
+            color: var(--accent-gold);
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .event-details {
+            color: var(--text-primary);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .venue-section {
+            margin-top: 30px;
+        }
+
+        .venue-name {
+            color: var(--text-primary);
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .venue-address {
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .card {
+                padding: 20px 15px;
+                border-left-width: 8px;
+            }
+            .couple-name {
+                font-size: 1.8rem;
+            }
+            [lang="en"] .couple-name {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controls">
+        <button class="btn" onclick="toggleLanguage()" id="langBtn">English</button>
+        <button class="btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
+    </div>
+
+    <div class="card" id="cardContainer">
+        <img src="murugan.png" alt="Lord Murugan" class="top-icon">
+
+        <h1 id="mainTitle">திருமண அழைப்பிதழ்</h1>
+        <div class="greeting" id="greeting">வணக்கம், வாழ்க வளமுடன்!</div>
+
+        <div class="main-date">
+            <span id="dateText">நிகழும் தை மாதம் 14 ஆம் நாள் (28.01.26) புதன்கிழமை</span><br>
+            <span id="timeText">காலை 9.00 மணிக்கு மேல் 10.30 மணிக்குள</span>
+        </div>
+
+        <hr class="divider">
+
+        <div class="parents" id="groomParents">திரு. ஆ. ரவிச்சந்திரன் – திருமதி ர. கமலவேணி அவர்களின் மகன்</div>
+        <div class="couple-name" id="groomName">ர. தமிழ்செல்வன்</div>
+        
+        <div class="parents" id="brideParents">திரு. விஸ்வநாதன் – திருமதி வி. திலகவதி அவர்களின் மகள்</div>
+        <div class="couple-name" id="brideName">வி. யோகவர்ஷினி</div>
+
+        <hr class="divider">
+
+        <p class="invite-text" id="inviteText">
+            எங்களது திருமணம் நடைபெற உள்ளதால் நீங்கள் குடும்பத்தினருடன் வந்து விழாவை சிறப்பிக்குமாறு அன்புடன் அழைக்கிறோம்.
+        </p>
+
+        <div class="events-section">
+            <div class="event-title" id="receptionTitle">வரவேற்பு</div>
+            <div class="event-details" id="receptionDetails">
+                27.01.26 – செவ்வாய்க்கிழமை<br>
+                மாலை 6.00 – 9.00 மணி
+            </div>
+        </div>
+
+        <div class="venue-section">
+            <div class="event-title" id="venueLabel">இடம்</div>
+            <div class="venue-name" id="venueName">MLR மஹால்</div>
+            <div class="venue-address" id="venueAddress">
+                குன்னத்தூர் சாலை, பெருமாநல்லூர், திருப்பூர்.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Translations Data ---
+        const translations = {
+            ta: {
+                title: "திருமண அழைப்பிதழ்",
+                greeting: "வணக்கம், வாழ்க வளமுடன்!",
+                dateText: "நிகழும் தை மாதம் 14 ஆம் நாள் (28.01.26) புதன்கிழமை",
+                timeText: "காலை 9.00 மணிக்கு மேல் 10.30 மணிக்குள்",
+                groomParents: "திரு. ஆ. ரவிச்சந்திரன் – திருமதி ர. கமலவேணி அவர்களின் மகன்",
+                groomName: "ர. தமிழ்செல்வன்",
+                brideName: "வி. யோகவர்ஷினி",
+                brideParents: "திரு. விஸ்வநாதன் – திருமதி வி. திலகவதி அவர்களின் மகள்",
+                inviteText: "எங்களது திருமணம் நடைபெற உள்ளதால் நீங்கள் குடும்பத்தினருடன் வந்து விழாவை சிறப்பிக்குமாறு அன்புடன் அழைக்கிறோம்.",
+                receptionTitle: "வரவேற்பு",
+                receptionDetails: "27.01.26 – செவ்வாய்க்கிழமை<br>மாலை 6.00 – 9.00 மணி",
+                venueLabel: "இடம்",
+                venueName: "MLR மஹால்",
+                venueAddress: "குன்னத்தூர் சாலை, பெருமாநல்லூர், திருப்பூர்."
+            },
+            en: {
+                title: "Wedding Invitation",
+                greeting: "Greetings & Best Wishes!",
+                dateText: "On the 14th day of Thai (28.01.26) Wednesday",
+                timeText: "Morning between 9.00 AM and 10.30 AM",
+                groomParents: "Son of Mr. A. Ravichandran – Mrs. R. Kamalaveni",
+                groomName: "R. Tamilselvan",
+                brideName: "V. Yogavarshini",
+                brideParents: "Daughter of Mr. Viswanathan – Mrs. V. Thilagavathi",
+                inviteText: "We affectionately invite you to grace the occasion of our marriage with your family and friends.",
+                receptionTitle: "Reception",
+                receptionDetails: "27.01.26 – Tuesday<br>Evening 6.00 PM – 9.00 PM",
+                venueLabel: "Venue",
+                venueName: "MLR Mahal",
+                venueAddress: "Kunnathur Road, Perumanallur, Tiruppur."
+            }
+        };
+
+        let currentLang = 'ta';
+        let isDarkMode = false;
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ta' ? 'en' : 'ta';
+            document.documentElement.lang = currentLang;
+            document.getElementById('langBtn').textContent = currentLang === 'ta' ? 'English' : 'தமிழ்';
+            updateContent();
+        }
+
+        function updateContent() {
+            const t = translations[currentLang];
+            document.getElementById('mainTitle').textContent = t.title;
+            document.getElementById('greeting').textContent = t.greeting;
+            document.getElementById('dateText').textContent = t.dateText;
+            document.getElementById('timeText').textContent = t.timeText;
+            document.getElementById('groomParents').textContent = t.groomParents;
+            document.getElementById('groomName').textContent = t.groomName;
+            document.getElementById('brideName').textContent = t.brideName;
+            document.getElementById('brideParents').textContent = t.brideParents;
+            document.getElementById('inviteText').textContent = t.inviteText;
+            document.getElementById('receptionTitle').textContent = t.receptionTitle;
+            document.getElementById('receptionDetails').innerHTML = t.receptionDetails;
+            document.getElementById('venueLabel').textContent = t.venueLabel;
+            document.getElementById('venueName').textContent = t.venueName;
+            document.getElementById('venueAddress').textContent = t.venueAddress;
+        }
+
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            if (isDarkMode) {
+                document.body.setAttribute('data-theme', 'dark');
+                document.getElementById('themeBtn').textContent = '☀️';
+            } else {
+                document.body.removeAttribute('data-theme');
+                document.getElementById('themeBtn').textContent = '🌙';
+            }
+        }
+    </script>
+</body>
+</html>
