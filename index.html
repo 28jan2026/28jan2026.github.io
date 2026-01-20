@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="ta">
+<html lang="ta" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
     <title>Wedding Invitation - Tamilselvan & Yogavarshini</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,6 +70,11 @@
             font-weight: bold;
             font-family: sans-serif;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .btn svg {
+            vertical-align: middle;
+            margin-top: -2px; /* Slight adjustment to center visually */
         }
 
         .btn:hover {
@@ -191,6 +197,27 @@
             color: var(--text-secondary);
         }
 
+        /* START PATCH */
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+            text-decoration: none;
+            color: var(--text-primary); /* Matches your theme color */
+            font-weight: 600;
+            border: 1px solid var(--text-primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .map-link:hover {
+            background-color: var(--text-primary);
+            color: var(--bg-card);
+        }
+        /* END PATCH */
+
         /* Responsive */
         @media (max-width: 480px) {
             .card {
@@ -253,6 +280,14 @@
             <div class="venue-address" id="venueAddress">
                 குன்னத்தூர் சாலை, பெருமாநல்லூர், திருப்பூர்.
             </div>
+
+            <a href="https://www.google.com/maps/search/?api=1&query=MLR+Mahal,+Perumanallur,+Tiruppur" target="_blank" class="map-link" aria-label="Open in Maps">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span id="mapLabel">வரைபடத்தில் காண்க</span>
+          </a>
         </div>
     </div>
 
@@ -273,7 +308,8 @@
                 receptionDetails: "27.01.26 – செவ்வாய்க்கிழமை<br>மாலை 6.00 – 9.00 மணி",
                 venueLabel: "இடம்",
                 venueName: "MLR மஹால்",
-                venueAddress: "குன்னத்தூர் சாலை, பெருமாநல்லூர், திருப்பூர்."
+                venueAddress: "குன்னத்தூர் சாலை, பெருமாநல்லூர், திருப்பூர்.",
+                mapLabel: "வரைபடத்தில் காண்க",
             },
             en: {
                 title: "Wedding Invitation",
@@ -289,12 +325,31 @@
                 receptionDetails: "27.01.26 – Tuesday<br>Evening 6.00 PM – 9.00 PM",
                 venueLabel: "Venue",
                 venueName: "MLR Mahal",
-                venueAddress: "Kunnathur Road, Perumanallur, Tiruppur."
+                venueAddress: "Kunnathur Road, Perumanallur, Tiruppur.",
+                mapLabel: "View on Map",
             }
         };
 
         let currentLang = 'ta';
         let isDarkMode = false;
+
+        const moonIcon = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>`;
+
+        const sunIcon = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>`;
 
         function toggleLanguage() {
             currentLang = currentLang === 'ta' ? 'en' : 'ta';
@@ -319,18 +374,40 @@
             document.getElementById('venueLabel').textContent = t.venueLabel;
             document.getElementById('venueName').textContent = t.venueName;
             document.getElementById('venueAddress').textContent = t.venueAddress;
+            document.getElementById('mapLabel').textContent = t.mapLabel;
         }
+
+        // 1. Initialize the button with the Moon icon on load
+        window.onload = function() {
+            // If you want to start with the moon icon visible:
+            document.getElementById('themeBtn').innerHTML = moonIcon;
+        };
 
         function toggleTheme() {
             isDarkMode = !isDarkMode;
+            const btn = document.getElementById('themeBtn');
+
             if (isDarkMode) {
                 document.body.setAttribute('data-theme', 'dark');
-                document.getElementById('themeBtn').textContent = '☀️';
+                // When in Dark Mode, show Sun icon (to switch to light)
+                btn.innerHTML = sunIcon; 
             } else {
                 document.body.removeAttribute('data-theme');
-                document.getElementById('themeBtn').textContent = '🌙';
+                // When in Light Mode, show Moon icon (to switch to dark)
+                btn.innerHTML = moonIcon; 
             }
         }
+
+        // function toggleTheme() {
+        //     isDarkMode = !isDarkMode;
+        //     if (isDarkMode) {
+        //         document.body.setAttribute('data-theme', 'dark');
+        //         document.getElementById('themeBtn').textContent = '☀️';
+        //     } else {
+        //         document.body.removeAttribute('data-theme');
+        //         document.getElementById('themeBtn').textContent = '🌙';
+        //     }
+        // }
     </script>
 </body>
 </html>
